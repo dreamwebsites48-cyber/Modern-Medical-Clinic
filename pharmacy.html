@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy | Modern Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hospital-alt"></i> Modern Clinic
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="pharmacy.html">Pharmacy</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="appointment.html" class="cta-button">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-header">
+                <h2>Our Pharmacy</h2>
+                <p>Reliable healthcare products and essential medicines delivered to you.</p>
+            </div>
+
+            <div class="pharmacy-controls">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="medicineSearch" class="medicine-search"
+                        placeholder="Search for medicines, health products..." onkeyup="filterMedicines()">
+                </div>
+
+                <div class="pharmacy-filters">
+                    <button class="filter-btn active" onclick="filterByCategory('All Products', this)">All
+                        Products</button>
+                    <button class="filter-btn" onclick="filterByCategory('Pain Relief', this)">Pain Relief</button>
+                    <button class="filter-btn" onclick="filterByCategory('Antibiotics', this)">Antibiotics</button>
+                    <button class="filter-btn" onclick="filterByCategory('Vitamins', this)">Vitamins</button>
+                    <button class="filter-btn" onclick="filterByCategory('First Aid', this)">First Aid</button>
+                    <button class="filter-btn" onclick="filterByCategory('Baby Care', this)">Baby Care</button>
+                </div>
+            </div>
+
+            <div class="pharmacy-grid">
+                <!-- Medicine Cards (25 items) -->
+                <!-- Item 1 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-pills"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Pain Relief</span>
+                        <h4>Paracetamol 500mg</h4>
+                        <p class="medicine-price">₹45.00</p>
+                        <p class="medicine-desc">Effective relief for fever and mild to moderate pain.</p>
+                        <button class="buy-btn" onclick="addToCart('Paracetamol 500mg', 45)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-capsules"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Antibiotics</span>
+                        <h4>Amoxicillin 250mg</h4>
+                        <p class="medicine-price">₹120.00</p>
+                        <p class="medicine-desc">Broad-spectrum antibiotic for bacterial infections.</p>
+                        <button class="buy-btn" onclick="addToCart('Amoxicillin 250mg', 120)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-prescription-bottle"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Pain Relief</span>
+                        <h4>Ibuprofen 400mg</h4>
+                        <p class="medicine-price">₹65.00</p>
+                        <p class="medicine-desc">Anti-inflammatory for muscle pain and arthritis.</p>
+                        <button class="buy-btn" onclick="addToCart('Ibuprofen 400mg', 65)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-tablets"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Vitamins</span>
+                        <h4>Vitamin C 1000mg</h4>
+                        <p class="medicine-price">₹150.00</p>
+                        <p class="medicine-desc">Immunity booster and antioxidant supplement.</p>
+                        <button class="buy-btn" onclick="addToCart('Vitamin C 1000mg', 150)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-vial"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Baby Care</span>
+                        <h4>Baby Skin Lotion</h4>
+                        <p class="medicine-price">₹210.00</p>
+                        <p class="medicine-desc">Gentle hydration for sensitive baby skin.</p>
+                        <button class="buy-btn" onclick="addToCart('Baby Skin Lotion', 210)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-first-aid"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">First Aid</span>
+                        <h4>Antiseptic Liquid</h4>
+                        <p class="medicine-price">₹85.00</p>
+                        <p class="medicine-desc">Protects against infection from cuts and wounds.</p>
+                        <button class="buy-btn" onclick="addToCart('Antiseptic Liquid', 85)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-mortar-pestle"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Ayurvedic</span>
+                        <h4>Ashwagandha Tablets</h4>
+                        <p class="medicine-price">₹180.00</p>
+                        <p class="medicine-desc">Natural stress relief and energy booster.</p>
+                        <button class="buy-btn" onclick="addToCart('Ashwagandha Tablets', 180)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-pills"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Allergy</span>
+                        <h4>Cetirizine 10mg</h4>
+                        <p class="medicine-price">₹35.00</p>
+                        <p class="medicine-desc">Fast relief from allergy symptoms and hay fever.</p>
+                        <button class="buy-btn" onclick="addToCart('Cetirizine 10mg', 35)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-prescription-bottle-alt"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Cough & Cold</span>
+                        <h4>Cough Syrup (Sugar-Free)</h4>
+                        <p class="medicine-price">₹95.00</p>
+                        <p class="medicine-desc">Soothing relief for dry and productive coughs.</p>
+                        <button class="buy-btn" onclick="addToCart('Cough Syrup', 95)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-capsules"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Digestion</span>
+                        <h4>Omeprazole 20mg</h4>
+                        <p class="medicine-price">₹110.00</p>
+                        <p class="medicine-desc">Treats heartburn and acid reflux symptoms.</p>
+                        <button class="buy-btn" onclick="addToCart('Omeprazole 20mg', 110)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-tablets"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Vitamins</span>
+                        <h4>Multivitamin Daily</h4>
+                        <p class="medicine-price">₹299.00</p>
+                        <p class="medicine-desc">Essential vitamins and minerals for daily health.</p>
+                        <button class="buy-btn" onclick="addToCart('Multivitamin Daily', 299)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-band-aid"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">First Aid</span>
+                        <h4>Adhesive Bandages (20pc)</h4>
+                        <p class="medicine-price">₹40.00</p>
+                        <p class="medicine-desc">Flexible protection for minor cuts and scrapes.</p>
+                        <button class="buy-btn" onclick="addToCart('Adhesive Bandages', 40)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 13 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-prescription-bottle"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Pain Relief</span>
+                        <h4>Diclofenac Gel</h4>
+                        <p class="medicine-price">₹75.00</p>
+                        <p class="medicine-desc">Topical relief for joint and muscle inflammation.</p>
+                        <button class="buy-btn" onclick="addToCart('Diclofenac Gel', 75)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 14 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-vials"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Heart Care</span>
+                        <h4>Aspirin 75mg</h4>
+                        <p class="medicine-price">₹25.00</p>
+                        <p class="medicine-desc">Low dose blood thinner for heart health.</p>
+                        <button class="buy-btn" onclick="addToCart('Aspirin 75mg', 25)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 15 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-thermometer"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Devices</span>
+                        <h4>Digital Thermometer</h4>
+                        <p class="medicine-price">₹199.00</p>
+                        <p class="medicine-desc">Accurate and fast body temperature reading.</p>
+                        <button class="buy-btn" onclick="addToCart('Digital Thermometer', 199)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 16 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-hand-holding-medical"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Hygiene</span>
+                        <h4>Hand Sanitizer 500ml</h4>
+                        <p class="medicine-price">₹125.00</p>
+                        <p class="medicine-desc">75% Alcohol based instant germ killer.</p>
+                        <button class="buy-btn" onclick="addToCart('Hand Sanitizer', 125)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 17 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-pills"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Sleep Aid</span>
+                        <h4>Melatonin 3mg</h4>
+                        <p class="medicine-price">₹160.00</p>
+                        <p class="medicine-desc">Natural sleep cycle regulator supplement.</p>
+                        <button class="buy-btn" onclick="addToCart('Melatonin 3mg', 160)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 18 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-prescription-bottle-alt"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Diabetes</span>
+                        <h4>Metformin 500mg</h4>
+                        <p class="medicine-price">₹90.00</p>
+                        <p class="medicine-desc">Blood sugar control for type 2 diabetes.</p>
+                        <button class="buy-btn" onclick="addToCart('Metformin 500mg', 90)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 19 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-eye-dropper"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Eye Care</span>
+                        <h4>Lubricating Eye Drops</h4>
+                        <p class="medicine-price">₹140.00</p>
+                        <p class="medicine-desc">Relieves dryness and irritation in eyes.</p>
+                        <button class="buy-btn" onclick="addToCart('Lubricating Eye Drops', 140)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 20 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-tablets"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Vitamins</span>
+                        <h4>Zinc + Vitamin D3</h4>
+                        <p class="medicine-price">₹220.00</p>
+                        <p class="medicine-desc">Potent combination for seasonal immunity.</p>
+                        <button class="buy-btn" onclick="addToCart('Zinc + Vitamin D3', 220)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 21 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-box-tissue"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Baby Care</span>
+                        <h4>Aloe Baby Wipes</h4>
+                        <p class="medicine-price">₹130.00</p>
+                        <p class="medicine-desc">Soft wipes with aloe vera for skin care.</p>
+                        <button class="buy-btn" onclick="addToCart('Aloe Baby Wipes', 130)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 22 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-spray-can"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Skin Care</span>
+                        <h4>Antifungal Spray</h4>
+                        <p class="medicine-price">₹175.00</p>
+                        <p class="medicine-desc">Effective treatment for fungal skin infections.</p>
+                        <button class="buy-btn" onclick="addToCart('Antifungal Spray', 175)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 23 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-pills"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Pain Relief</span>
+                        <h4>Naproxen 250mg</h4>
+                        <p class="medicine-price">₹80.00</p>
+                        <p class="medicine-desc">Long-lasting relief for chronic body pain.</p>
+                        <button class="buy-btn" onclick="addToCart('Naproxen 250mg', 80)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 24 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-prescription-bottle"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Cough & Cold</span>
+                        <h4>Nasal Decongestant</h4>
+                        <p class="medicine-price">₹55.00</p>
+                        <p class="medicine-desc">Fast relief from blocked nose and congestion.</p>
+                        <button class="buy-btn" onclick="addToCart('Nasal Decongestant', 55)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Item 25 -->
+                <div class="medicine-card">
+                    <div class="medicine-img"><i class="fas fa-heartbeat"></i></div>
+                    <div class="medicine-info">
+                        <span class="medicine-category">Heart Care</span>
+                        <h4>Omega-3 Fish Oil</h4>
+                        <p class="medicine-price">₹450.00</p>
+                        <p class="medicine-desc">Supports heart health and brain function.</p>
+                        <button class="buy-btn" onclick="addToCart('Omega-3 Fish Oil', 450)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Modern Clinic</h4>
+                <p>Leading healthcare provider committed to excellence and compassionate patient care.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="pharmacy.html">Pharmacy</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Medical City</p>
+                <p><i class="fas fa-phone"></i> +91 55555 43210</p>
+                <p><i class="fas fa-envelope"></i> contact@modernclinic.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Modern Medical Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | Modern Medical Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hospital-alt"></i> Modern Clinic
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="pharmacy.html">Pharmacy</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="appointment.html" class="cta-button">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-header">
+                <h2>Book Your Appointment</h2>
+                <p>Simple and fast scheduling with our expert medical team.</p>
+            </div>
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: white; padding: 3rem; border-radius: 30px; box-shadow: var(--shadow-lg);">
+                <form id="appointmentForm" onsubmit="submitForm(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Select Specialist</label>
+                            <select id="doctor" name="doctor" required>
+                                <option value="">Choose a Doctor</option>
+                                <option value="Dr. Rajesh Kumar">Dr. Rajesh Kumar (GP)</option>
+                                <option value="Dr. Priya Sharma">Dr. Priya Sharma (Cardiology)</option>
+                                <option value="Dr. Anjali Patel">Dr. Anjali Patel (Pediatrics)</option>
+                                <option value="Dr. Amit Singh">Dr. Amit Singh (Orthopedics)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select Slot</option>
+                                <option value="09:00 AM">09:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="02:00 PM">02:00 PM</option>
+                                <option value="03:00 PM">03:00 PM</option>
+                                <option value="04:00 PM">04:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Briefly describe your symptoms..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" style="margin-top: 1rem;">Confirm Appointment</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Modern Clinic</h4>
+                <p>Leading healthcare provider committed to excellence and compassionate patient care.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="pharmacy.html">Pharmacy</a></li>
+                    <li><a href="appointment.html">Appointment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health Ave, Medical City</p>
+                <p><i class="fas fa-phone"></i> +91 55555 43210</p>
+                <p><i class="fas fa-envelope"></i> contact@modernclinic.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Modern Medical Clinic. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
